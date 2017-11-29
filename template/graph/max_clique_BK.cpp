@@ -1,5 +1,6 @@
 //g[i][i] should be 0
 //index [0..N)
+//O(n ^ 3)
 typedef unsigned long long T;
 struct BK {
 	static const int N = 100; T g[N];
