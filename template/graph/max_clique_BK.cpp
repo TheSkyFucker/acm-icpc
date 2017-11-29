@@ -6,7 +6,8 @@ struct BK {
 	static const int N = 100; T g[N];
 	inline int ctz(T s){ return s ? __builtin_ctzll(s) : 64;}
 	int n, ans;
-	void gao(T cur, T can, T ban){
+	void ini(int _n) { per(i, 0, n = _n) g[i] = (1ull << n) - 1 - (1ull << i); }
+	void gao(T cur, T can, T ban) {
 		if (!can && !ban) { ans = max(ans, __builtin_popcountll(cur)); return; }
 		if (!can) return;
 		int piv = ctz(can | ban), ret = 0;
@@ -16,8 +17,5 @@ struct BK {
 			can ^= 1ull << u, ban |= 1ull << u;
 		}
 	}
-	int run(int n) {
-		this->n = n; gao(ans = 0, (1ull << n) - 1, 0);
-		return ans;
-	}
+	int run() { gao(ans = 0, (1ull << n) - 1, 0); return ans; }
 }	bk;
