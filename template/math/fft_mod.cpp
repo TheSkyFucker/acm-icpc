@@ -1,4 +1,3 @@
-//任意模数
 const db pi = acos(-1);
 const int P = 1e9 + 7;
 void pp(int &a, int b) { if ((a += b) >= MOD) a -= MOD; }
