@@ -1,5 +1,6 @@
 //HN: hash level
 //N: max string lenth
+//do HH::pre() before use 
 int mul(int a, int b, const int &M) { return 1ll * a * b % M; }
 int add(int a, int b, const int &M) { if ((a += b) >= M) a -= M; return a; }
 namespace HH {
@@ -16,8 +17,8 @@ namespace HH {
     int val(char ch) { return ch; }
     struct Hash {
         int h[HN][N], sz;
-        void ini(string s) { //void ini(char str *) {
-            sz = sz(s);      //    sz = strlen(str);
+        void ini(string s) { //void ini(char * s) {
+            sz = sz(s);      //    sz = strlen(s);
             rep(i, 0, HN) {
                 h[i][0] = val(s[0]);
                 rep(j, 1, sz) h[i][j] = add(val(s[j]), mul(h[i][j - 1], B[i], P[i]), P[i]);
