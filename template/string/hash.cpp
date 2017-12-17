@@ -1,5 +1,5 @@
-//HN: 几维
-//N: 字符串最大长度
+//HN: hash level
+//N: max string lenth
 int mul(int a, int b, const int &M) { return 1ll * a * b % M; }
 int add(int a, int b, const int &M) { if ((a += b) >= M) a -= M; return a; }
 namespace HH {
