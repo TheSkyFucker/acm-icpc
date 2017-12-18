@@ -19,9 +19,9 @@ char str[N];
 int mul(int a, int b, const int &M) { return 1ll * a * b % M; }
 int add(int a, int b, const int &M) { if ((a += b) >= M) a -= M; return a; }
 namespace HH {
-    const int N = 1e5 + 7, HN = 3;
-    const int B[3] = {10, 10, 10};
-    const int P[3] = {1000000007, 1000000009, 91815541};
+    const int N = 1e6 + 7, HN = 5;
+    const int B[HN] = {10, 10, 10, 10, 10};
+    const int P[HN] = {1000000007, 1000000009, 91815541, 917120411, 687840301};
     int pw[HN][N];
     void pre() {
         rep(i, 0, HN) {
@@ -56,19 +56,28 @@ bool gao(int la, int lb, int lc) {
     return true;
 }
 
+bool ok(int a, int b, int c) {
+	if (a < 1 || a > c) return false;
+	if (b < 1 || a > c) return false;
+	if (a > 1 && str[0] == '0') return false;
+	if (b > 1 && str[a] == '0') return false;
+	if (c > 1 && str[a + b] == '0') return false;
+	return true;
+}
+
 void solve() {
     n = strlen(str);
     HH::pre();
     hs.ini(str);
     rep(la, 1, n + 1) {
         rep(lc, la, la + 2) {
-            int lb = n - la - lc; if (lb < 0 || lb > lc) continue;
+            int lb = n - la - lc; if (!ok(la, lb, lc)) continue;
             if (gao(la, lb, lc)) return;
         }
     }
     rep(lb, 1, n + 1) {
         rep(lc, lb, lb + 2) {
-            int la = n - lb - lc; if (la < 0 || la > lc) continue;
+            int la = n - lb - lc; if (!ok(la, lb, lc)) continue;
             if (gao(la, lb, lc)) return;
         }
     }

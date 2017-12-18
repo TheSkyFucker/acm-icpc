@@ -5,8 +5,8 @@ int mul(int a, int b, const int &M) { return 1ll * a * b % M; }
 int add(int a, int b, const int &M) { if ((a += b) >= M) a -= M; return a; }
 namespace HH {
     const int N = 1e5 + 7, HN = 2;
-    const int B[3] = {29123, 16381, 92083};
-    const int P[3] = {1000000007, 1000000009, 91815541};
+    const int B[5] = {29123, 38734667, 16381, 21788233, 92083};
+    const int P[5] = {1000000007, 1000000009, 91815541, 687840301, 917120411};
     int pw[HN][N];
     void pre() {
         rep(i, 0, HN) {
