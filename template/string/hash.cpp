@@ -25,7 +25,7 @@ namespace HH {
             }
         }
         int geth(int l, int r, int k = 0) {
-            return add(h[k][r - 1], P[k] - mul(l > 0 ? h[k][l - 1] : 0, pw[k][r - l], P[k]), P[k]);
+            return add(r > 0 ? h[k][r - 1] : 0, P[k] - mul(l > 0 ? h[k][l - 1] : 0, pw[k][r - l], P[k]), P[k]);
         }
         int swap(int l, int r, int k = 0) {
             if (l > r) swap(l, r);
