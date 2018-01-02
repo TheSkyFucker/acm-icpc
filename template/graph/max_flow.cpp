@@ -1,4 +1,5 @@
-//index [0, n)
+// index : [0, n)
+// !!!! : init(n) before use
 struct Edge { int to, cap; Edge() {} Edge(int to, int cap) : to(to), cap(cap) {} };
 struct Dinic{
     static const int N = 2e4 + 7, M = 2e5 + 7, INF = 1e9 + 7;
