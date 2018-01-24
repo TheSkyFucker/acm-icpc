@@ -1,3 +1,8 @@
+// point inside / on / outside circle
+bool operator < (const P& p, const C& c) { return sgn(abs(p - c.o) - c.r) <  0; }
+bool operator <=(const P& p, const C& c) { return sgn(abs(p - c.o) - c.r) <= 0; }
+bool operator ==(const P& p, const C& c) { return sgn(abs(p - c.o) - c.r) == 0; }
+
 // description : whether exist a point inside all Circle
 // time : sz(vc) ^ 2
 bool insCCC(vector<C> vc) {
