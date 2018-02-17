@@ -3,6 +3,7 @@
 // pre-time : O( MOD )
 // inv[i] : inv(i)
 // ijc[i] : inv(jc[i])
+// !!!! : MOD should be a prime
 int jc[MOD], ijc[MOD], inv[MOD];
 int C(int a, int b) { return a < b ? 0 : mul(jc[a], mul(ijc[b], ijc[a - b])); }
 int lucas(ll a, ll b) { return ! b ? 1 : mul(C(a % MOD, b % MOD), lucas(a / MOD, b / MOD)); }
