@@ -1,4 +1,6 @@
 // f[i] : i-th fibonacii begin with 1, 1
+// f[i] = sqrt(5) / 5 * (((1 + sqrt(5)) / 2) ^ n - ((1 - sqrt(5)) / 2) ^ n)
+
 // F(a, b, i) : ................... a, b
 // F(a, b, i) = f(i - 1) * b + f(i - 2) * a
 int F(int a, int b, int x) {
