@@ -1,46 +1,20 @@
-// point inside / on / outside circle
-bool operator < (const P& p, const C& c) { return sgn(abs(p - c.o) - c.r) <  0; }
-bool operator <=(const P& p, const C& c) { return sgn(abs(p - c.o) - c.r) <= 0; }
-bool operator ==(const P& p, const C& c) { return sgn(abs(p - c.o) - c.r) == 0; }
+typedef db T;
+T eps = 1e-10;
+int sgn(T d) { return (d > eps) - (d < -eps); }
+struct P {
+	T x, y;
+	P() {}
+	P(T x, T y): x(x), y(y) {}
+	T operator *(const P &b) const { return x * b.x + y * b.y; }
+	T operator /(const P &b) const { return x * b.y - y * b.x; }
+	P operator +(const P &b) const { return P(x + b.x, y + b.y); }
+	P operator -(const P &b) const { return P(x - b.x, y - b.x); }
+	P operator *(const T &d) const { return P(x * d, y * d); }
+	P operator /(const T &d) const { return P(x / d, y / d); }
+	T abs() const { return sqrt(x * x + y * y); }
+	T norm() const { return x * x + y * y; }
+	P rot90() const { return P(-y, x); }
+	void show() { dd(x); de(y); }
+	void read() { scanf("%lf%lf", &x, &y); }
+};
 
-// !!!! : if a.o = b.o then return nothing even if a.r = b.r;
-// time : O(1)
-vector<P> insCC(C a, C b) {
-    vector<P> res;
-    T x = norm(a.o - b.o);
-    if (sgn(x) == 0) return res;
-    T y = ((a.r * a.r - b.r * b.r) / x +1) / 2,
-      d = a.r * a.r / x - y * y;
-    if (sgn(d) < 0) return res;
-    d = max(d, 0.);
-    P mid = (b.o - a.o) * y + a.o,
-      del = ((b.o - a.o) * sqrt(d)).rot90();
-    return {mid - del, mid + del};
-}
-
-// description : return a point inside all Circle, if exist;
-// time : sz(vc) ^ 2 + sz(vc) ^ 3
-vector<P> insCCC(vector<C> vc) {
-    // type 1 : intersection is a circle
-    for (auto ci : vc) {
-        bool ok = true;
-        for (auto cj : vc) if (!(ci.o <= cj)) {
-            ok = false;
-            break;
-        }
-        if (ok) return {ci.o};
-    }
-    // type 2 : board point of intersection should be a point : circle a & b
-    for (auto ci : vc) for (auto cj : vc) {
-        auto vp = insCC(ci, cj);
-        for (auto p : vp) {
-            bool ok = true;
-            for (auto ck : vc) if (!(p <= ck)) {
-                ok = false;
-                break;
-            }
-            if (ok) return {p};
-        }
-    }
-    return {};
-}
