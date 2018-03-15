@@ -14,7 +14,7 @@ struct Maxclique {
         S.resize(sz + 1);
     }
     static bool desc_deg(const ve &a, const ve &b) { return a.d > b.d; }
-    void ini_col(ves &v) { per(i, 0, sz(V)) v[i].d = min(i, v[0].d) + 1; }
+    void ini_col(ves &v) { per(i, 0, sz(v)) v[i].d = min(i, v[0].d) + 1; }
     void set_deg(ves &v) { rep(i, 0, sz(v)){v[i].d = 0; rep(j, 0, sz(v)) v[i].d += e[v[i].i][v[j].i]; } }
     void deg_sort(ves &R) { set_deg(R); sort(all(R), desc_deg); }
     bool cut1(int pi , cc  &va) { rep(i, 0, sz(va)) if (e[pi][va[i]]) return true; return false; }
