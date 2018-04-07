@@ -24,10 +24,10 @@ namespace HH {
                 rep(j, 1, sz) h[i][j] = add(val(s[j]), mul(h[i][j - 1], B[i], P[i]), P[i]);
             }
         }
-        int geth(int l, int r, int k = 0) {
+        int geth(int l, int r, int k = 0) {	//[l, r)
             return add(r > 0 ? h[k][r - 1] : 0, P[k] - mul(l > 0 ? h[k][l - 1] : 0, pw[k][r - l], P[k]), P[k]);
         }
-        int swap(int l, int r, int k = 0) {
+        int swap(int l, int r, int k = 0) { //[l, r)
             if (l > r) swap(l, r);
             int ret = geth(r + 1, sz, k);
             ret = add(ret, mul(geth(0, l, k), pw[k][sz - l], P[k]), P[k]);
