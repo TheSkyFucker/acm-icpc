@@ -11,7 +11,7 @@
         - $O（VE）$
       - 同时增广（**Hopcroft Karp**）
         - $O（E\sqrt{V}）$ 
-        -  寻找增广路集的每一个阶段所寻找到的 **最短增广路** 都具有相等的长度；
+        - 寻找增广路集的每一个阶段所寻找到的 **最短增广路** 都具有相等的长度；
         - 随着算法的进行最短增广路的长度越来越长；
         - 故最多增广 $\sqrt{n}$ 次
       - 对称差集（Symmetric Difference）
@@ -23,14 +23,19 @@
       | [**10418**](http://uva.onlinejudge.org/external/104/10418.html) | [**10243**](http://uva.onlinejudge.org/external/102/10243.html) | [**10984**](http://uva.onlinejudge.org/external/109/10984.html) | [**663**](http://uva.onlinejudge.org/external/6/663.html) | [**11148**](http://uva.onlinejudge.org/external/111/11148.html) |
       |                                          |                                          |                                          |                                          |                                          |
 
-- [ ] **Blossom Algorithm**（一般图最大匹配，**带花树**）
+- [ ] **Graph Matching** （一般图最大匹配）
 
+      - 带花树（**Blossom Algorithm**）
+        - $O(EV)$ （×个并查集的查询复杂度）
       - 贪心预匹配（greedy matching）：同样有效
+      - 同时增广
+        - $O（E \sqrt{V}）$ 
+        - 作法及证明：[**《A Proof of the MV Matching Algorithm》**](http://www.cc.gatech.edu/~vazirani/new-proof.pdf) （40 pages，已弃
       - Problem Set
 
       | Timus [1099](http://acm.timus.ru/problem.aspx?space=1&num=1099) | UVa [11439](http://uva.onlinejudge.org/external/114/11439.html) | ICPC [3820](http://icpcarchive.ecs.baylor.edu/external/38/3820.pdf) |
       | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-      |                                          |                                          |                                          |
+      |                                          | done                                     |                                          |
 
 
 
