@@ -1,3 +1,16 @@
+//欧拉函数：小于 n && 与 n 互质的数的个数, phi(1) = 1
+//欧拉降幂：求a ^ b % m (b >= phi(m))
+// 1) a ^ b % m = a ^ ( b % phi(m) + phi(m) ) % m
+int phi(int n) { 
+	int r = n;
+	for (int i = 2; i * i <= n; i++) if (n % i == 0) {
+		r = r / i * (i  - 1);
+		while (n % i == 0) n /= i;
+	}
+	if (n > 1) r = r / n * (n - 1); 
+	return r;
+}
+
 ﻿// gcd(a, b) = ax + by
 // return gcd(a, b)
 ll exgcd(ll a, ll b, ll &x, ll &y) {
