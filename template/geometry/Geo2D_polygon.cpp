@@ -22,4 +22,3 @@ P gravity(polygon p) {
 	}
 	return g / (3. * area) + o;
 }
-
