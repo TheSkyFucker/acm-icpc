@@ -1,3 +1,8 @@
+// 将 stdio 解除绑定
+// 在这之后不要混用 cout 和 printf 之类
+std::ios::sync_with_stdio(false);
+std::cin.tie(0);
+
 struct IO {
     static const int IO_N = 1<<23;
     int wt,ss[19];
