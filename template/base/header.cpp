@@ -13,15 +13,15 @@ typedef pair<int, int> pii;
 #define all(x) (x).begin(),(x).end()
 #define rep(i,l,r) for(int i=(l);i<(r);++i)
 #define per(i,l,r) for(int i=(r)-1;i>=(l);--i)
-#define dd(x) cout << #x << " = " << x << ", "
-#define de(x) cout << #x << " = " << x << endl
+#define dd(x) cout << #x << " = " << (x) << ", "
+#define de(x) cout << #x << " = " << (x) << "\n"
+#define endl "\n"
 
 //-----
 
 int main() {
 	std::ios::sync_with_stdio(false);
 	std::cin.tie(0);
-
 
 
 	return 0;
