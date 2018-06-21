@@ -22,3 +22,4 @@ struct P {
 	P rot(const T &a) const { return P(cos(a) * x - sin(a) * y, sin(a) * x + cos(a) * y); } 
 };
 
+bool onPS(P p, P s, P t) { return sgn((t - s) / (p - s)) == 0 && sgn((p - s) * (p - t)) <= 0; }
