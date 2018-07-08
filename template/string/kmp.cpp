@@ -1,10 +1,8 @@
 // index : [0, n)
-int pre[N];
-void ini(char str[]) {
-	int n = strlen(str), tmp = -1;
-	pre[0] = -1;
-	rep(i, 1, n) {
-		for (; ~tmp && str[tmp + 1] != str[i]; tmp = pre[tmp]);
-		pre[i] = tmp += (str[tmp + 1] == str[i]);
-	}
+void ini(string s, int p[]) {
+  int t = -1; p[0] = -1;
+  rep(i, 1, sz(s)) {
+    while (~t && s[t + 1] != s[i]) t = p[t];
+    p[i] = t += (s[t + 1] == s[i]);
+  }
 }
